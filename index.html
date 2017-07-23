@@ -16,7 +16,7 @@
         body, html {
             overflow: hidden;
         }  
-        .f {
+        .f, .n {
             display: block;
             position: fixed;
             bottom: 0px;
@@ -24,6 +24,15 @@
             text-align: center;
             z-index: 666;
             padding: 10px;
+        }
+        .n {
+            right: 0px;
+            font-weight: bold;
+            font-size: x-large;
+        }
+        .n, .n:visited, .n:active {
+            text-decoration: none;
+            color: #000;
         }
         .f img {
             width: 32px;
@@ -46,6 +55,7 @@
         var nextImage = function() {
             var image = images[Math.floor(Math.random()*images.length)];
             document.getElementById("c").setAttribute("src", image);
+            document.getElementById("n").setAttribute("href", image);
         }
     </script>
     <script type="text/javascript" src="loader.js"></script>
@@ -55,6 +65,6 @@
     <a class="f" href="https://github.com/tvpis/tvpis.github.io/pull/new/master" title="Dodaj obrazek">
         <img src="https://assets-cdn.github.com/images/modules/logos_page/Octocat.png">
     </a>
-
+    <a id="n" class="n">#</a>
 </body>
 </html>
