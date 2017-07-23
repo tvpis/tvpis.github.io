@@ -2,9 +2,12 @@
 <head>
     <title>TV PiS</title>
     <script
-			  src="https://code.jquery.com/jquery-3.2.1.min.js"
-			  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-              crossorigin="anonymous"></script>
+	    src="https://code.jquery.com/jquery-1.10.2.min.js"
+        crossorigin="anonymous"></script>
+    <script 
+        src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"
+        crossorigin="anonymous"></script>
+    
     <meta name="x-prorok" content="Zbigniew Stonoga" />
     <meta charset="UTF-8"> 
     <style type="text/css">
@@ -70,9 +73,8 @@
                 loadImage();
                 $("#j").click(prevImage);
                 $("#l").click(nextImage);
-                $("#c").click(randImage);
-                $("#c").on("swipeleft", nextImage);
-                $("#c").on("swiperight", prevImage);
+                $("#c").on("swipeleft", prevImage);
+                $("#c").on("swiperight", nextImage);
             });
             
         }
