@@ -7,7 +7,7 @@
     <script 
         src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"
         crossorigin="anonymous"></script>
-    
+    <!-- aby dodac nowy obrazek: zrob pr https://github.com/tvpis/tvpis.github.io/pull/new/master -->
     <meta name="x-prorok" content="Zbigniew Stonoga" />
     <meta charset="UTF-8"> 
     <style type="text/css">
@@ -31,6 +31,10 @@
             max-height: 100%;
             display: block;
             margin: 0px auto;
+        }
+        .d .r {
+            
+            display: none
         }
         .j, .l {
             position: absolute;
@@ -67,6 +71,11 @@
             position: absolute;
             text-align: center;
         }
+        .q img {
+            width: 20px;
+            height: 20px;
+            display: inline-block;
+        }
     </style>
     <script type="text/javascript">
         images = [];
@@ -80,16 +89,20 @@
                 $("#c").on("swipeleft", nextImage);
                 $("#c").on("swiperight", prevImage);
                 $("#c").load(function() { 
+                    $(".d .r").hide();
+                    $(".d .c").show();
                     $(".l,.j").css("height", $(".c").css("height"));
                 });
             });
             
         }
         var loadImage = function() {
-            $("#c").attr("src", images[imageIndex]);
+            $(".d .r").show();
+            $(".d .c").hide();
+            $("#c").attr("src",  images[imageIndex]);
             $("#h").attr("href", images[imageIndex]);
             
-            $("#s").html("<a href='" + images[imageIndex] + "'>" + images[imageIndex] + "</a>" + " - " + ( imageIndex + 1 ) + " / " + images.length);
+            $("#x").html("<a href='" + images[imageIndex] + "'>" + images[imageIndex] + "</a>" + " - " + ( imageIndex + 1 ) + " / " + images.length);
         }
         var randImage = function() {
             imageIndex = Math.floor(Math.random()*images.length)
@@ -115,15 +128,15 @@
     <div class="d">
         <a id="j" class="j"><span>&laquo;</span></a>
         <img id="c" class="c" />
+        <img id="r" class="r" src="loading.gif" />
         <a id="l" class="l"><span>&raquo;</span></a>
-        <div id="s" class="s"></div>
+        <div id="s" class="s">
+            <span id="x"></span>
+        </div>
     </div>
 
-    <!--
-    <a class="f" href="https://github.com/tvpis/tvpis.github.io/pull/new/master" title="Dodaj obrazek">
-        <img src="https://assets-cdn.github.com/images/modules/logos_page/Octocat.png">
-    </a>
-    <a id="n" class="n">#</a>
-    -->
+    
+    
+    
 </body>
 </html>
