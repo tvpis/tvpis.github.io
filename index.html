@@ -71,6 +71,8 @@
                 $("#j").click(prevImage);
                 $("#l").click(nextImage);
                 $("#c").click(randImage);
+                $("#c").on("swipeleft", nextImage);
+                $("#c").on("swiperight", prevImage);
             });
             
         }
