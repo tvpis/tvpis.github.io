@@ -75,13 +75,16 @@
                 $("#l").click(nextImage);
                 $("#c").on("swipeleft", nextImage);
                 $("#c").on("swiperight", prevImage);
+                $("#c").load(function() { 
+                    $(".l,.j").css("height", $(".c").css("height"));
+                });
             });
             
         }
         var loadImage = function() {
             $("#c").attr("src", images[imageIndex]);
             $("#h").attr("href", images[imageIndex]);
-            $(".l,.j").css("height", $(".c").css("height"));
+            
             $("#s").html("<a href='" + images[imageIndex] + "'>" + images[imageIndex] + "</a>" + " - " + ( imageIndex + 1 ) + " / " + images.length);
         }
         var randImage = function() {
