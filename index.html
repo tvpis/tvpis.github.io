@@ -82,9 +82,30 @@
         imageIndex = 0;
         var loadImages = function(list) {
             images = list;
+            $(window).on('hashchange', function() {
+                if(window.location.hash) {
+                    var hash = window.location.hash.substring(1);
+                    imageIndex = hash - 1;
+                    if(imageIndex <= 0) 
+                        imageIndex = 0
+                    if(imageIndex >= images.length - 1)
+                        imageIndex = images.length - 1;
+                    loadImage();
+                }
+            });
             $(document).ready(function() {
-                randImage();
+                if(window.location.hash) {
+                    var hash = window.location.hash.substring(1);
+                    imageIndex = hash - 1;
+                    if(imageIndex <= 0) 
+                            imageIndex = 0
+                    if(imageIndex > images.length - 1)
+                        imageIndex = images.length - 1;
+                } else { 
+                    randImage();
+                }
                 loadImage();
+                
                 $("#j").click(prevImage);
                 $("#l").click(nextImage);
                 $("#c").on("swipeleft", nextImage);
@@ -102,7 +123,7 @@
             $(".d .c").hide();
             $("#c").attr("src",  images[imageIndex]);
             $("#h").attr("href", images[imageIndex]);
-            
+            window.location.hash = imageIndex + 1;
             $("#x").html("<a href='" + images[imageIndex] + "'>" + images[imageIndex] + "</a>" + " - " + ( imageIndex + 1 ) + " / " + images.length);
         }
         var randImage = function() {
