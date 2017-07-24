@@ -83,6 +83,7 @@
         var loadImages = function(list) {
             images = list;
             $(document).ready(function() {
+                randImage();
                 loadImage();
                 $("#j").click(prevImage);
                 $("#l").click(nextImage);
