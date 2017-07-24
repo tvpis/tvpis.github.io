@@ -111,9 +111,10 @@
                 $("#c").on("swipeleft", nextImage);
                 $("#c").on("swiperight", prevImage);
                 $("#c").load(function() { 
+                    $(".l,.j").css("height", $(".c").css("height"));
                     $(".d .r").hide();
                     $(".d .c").show();
-                    $(".l,.j").css("height", $(".c").css("height"));
+                    
                 });
             });
             
