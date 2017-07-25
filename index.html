@@ -9,6 +9,9 @@
         crossorigin="anonymous"></script>
     <!-- aby dodac nowy obrazek: zrob pr https://github.com/tvpis/tvpis.github.io/pull/new/master -->
     <meta name="x-prorok" content="Zbigniew Stonoga" />
+    <meta name="x-future" content="Bedzie was pis jebal jak was platforma nie jebala" />
+    <meta name="keywords" content="Telewizja Polska, Prawo i Sprawiedliwość, PiS, TVP, TVP Info, TVP.info, TVPIS, Paski TVP, Paski TVP Info" />
+    
     <meta charset="UTF-8"> 
     <style type="text/css">
         body {
@@ -56,14 +59,6 @@
         .l {
             left: initial;
             right: 0px;
-        }
-        .s {
-            opacity: 0.4;
-            width: 100%;
-            position: absolute;
-            bottom: 0px;
-            left: 0px;
-            background: #fff;
         }
         .j span, .l span {
             top: 50%;
@@ -125,7 +120,6 @@
             $("#c").attr("src",  images[imageIndex]);
             $("#h").attr("href", images[imageIndex]);
             window.location.hash = imageIndex + 1;
-            $("#x").html("<a href='" + images[imageIndex] + "'>" + images[imageIndex] + "</a>" + " - " + ( imageIndex + 1 ) + " / " + images.length);
         }
         var randImage = function() {
             imageIndex = Math.floor(Math.random()*images.length)
@@ -153,9 +147,6 @@
         <img id="c" class="c" />
         <img id="r" class="r" src="loading.gif" />
         <a id="l" class="l"><span>&raquo;</span></a>
-        <div id="s" class="s">
-            <span id="x"></span>
-        </div>
     </div>
 
     
