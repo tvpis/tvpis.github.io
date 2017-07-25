@@ -117,8 +117,7 @@
         var loadImage = function() {
             $(".d .r").show();
             $(".d .c").hide();
-            $("#c").attr("src",  images[imageIndex]);
-            $("#h").attr("href", images[imageIndex]);
+            $("#c").attr("src",  "img/" + images[imageIndex]);
             window.location.hash = imageIndex + 1;
         }
         var randImage = function() {
