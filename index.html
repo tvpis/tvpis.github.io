@@ -71,10 +71,27 @@
             height: 20px;
             display: inline-block;
         }
+        .s {
+            position: absolute;
+            left: 0px;
+            bottom: 0px;
+            z-index: 667;
+            height: 24px;
+            width: 100%;
+            background: #000;
+            color: #fff;
+            text-align: center;
+            display: block;
+            font-family: "Comic Sans ms"
+        }
     </style>
     <script type="text/javascript">
         images = [];
+        texts  = [];
         imageIndex = 0;
+        var loadTexts = function(list) {
+            texts = list;
+        }
         var loadImages = function(list) {
             images = list;
             $(window).on('hashchange', function() {
@@ -117,7 +134,12 @@
         var loadImage = function() {
             $(".d .r").show();
             $(".d .c").hide();
+            
             $("#c").attr("src",  "img/" + images[imageIndex]);
+            $("#c").attr("alt", texts[imageIndex]);
+            $("#c").attr("title", texts[imageIndex]);
+            $("#s").html(texts[imageIndex]);
+            $("#s").attr("href", "#" + (imageIndex + 1));
             window.location.hash = imageIndex + 1;
         }
         var randImage = function() {
@@ -138,18 +160,19 @@
             
         }
     </script>
-    <script type="text/javascript" src="loader.js?v1"></script>
+    <script type="text/javascript" src="text.js?v2"></script>
+    <script type="text/javascript" src="loader.js?v2"></script>
+    
 </head>
 <body>
     <div class="d">
+        <a id="s" class="s"></a>
         <a id="j" class="j"><span>&laquo;</span></a>
         <img id="c" class="c" />
         <img id="r" class="r" src="loading.gif" />
         <a id="l" class="l"><span>&raquo;</span></a>
     </div>
 
-    
-    
-    
+
 </body>
 </html>
