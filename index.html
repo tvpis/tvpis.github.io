@@ -94,29 +94,44 @@
         }
         var loadImages = function(list) {
             images = list;
-            $(window).on('hashchange', function() {
-                if(window.location.hash) {
-                    var hash = window.location.hash.substring(1);
-                    imageIndex = hash - 1;
-                    if(imageIndex <= 0) 
-                        imageIndex = 0
-                    if(imageIndex >= images.length - 1)
-                        imageIndex = images.length - 1;
-                    loadImage();
-                }
-            });
+
+        }
+            
             $(document).ready(function() {
-                if(window.location.hash) {
-                    var hash = window.location.hash.substring(1);
-                    imageIndex = hash - 1;
-                    if(imageIndex <= 0) 
-                            imageIndex = 0
-                    if(imageIndex > images.length - 1)
-                        imageIndex = images.length - 1;
-                } else { 
-                    randImage();
-                }
-                loadImage();
+                $.ajax("data.json").done(function(data) {
+                    loadImages(data.map(function(x) {
+                        return x["img"];
+                    }));
+                    loadTexts(data.map(function(x) {
+                        return x["text"];
+                    }));
+                    
+                    $(window).on('hashchange', function() {
+                        if(window.location.hash) {
+                            var hash = window.location.hash.substring(1);
+                            imageIndex = hash - 1;
+                            if(imageIndex <= 0) 
+                                imageIndex = 0
+                            if(imageIndex >= images.length - 1)
+                                imageIndex = images.length - 1;
+                            loadImage();
+                        }
+                    });
+                    
+                    if(window.location.hash) {
+                        var hash = window.location.hash.substring(1);
+                        imageIndex = hash - 1;
+                        if(imageIndex <= 0) 
+                                imageIndex = 0
+                        if(imageIndex > images.length - 1)
+                            imageIndex = images.length - 1;
+                        
+                        
+                    } else { 
+                        randImage();
+                    }
+                    loadImage();
+                });
                 
                 $("#j").click(prevImage);
                 $("#l").click(nextImage);
@@ -130,7 +145,7 @@
                 });
             });
             
-        }
+        
         var loadImage = function() {
             $(".d .r").show();
             $(".d .c").hide();
@@ -144,7 +159,6 @@
         }
         var randImage = function() {
             imageIndex = Math.floor(Math.random()*images.length)
-            loadImage();
         }
         var nextImage = function() {
             imageIndex+=1;
@@ -160,8 +174,6 @@
             
         }
     </script>
-    <script type="text/javascript" src="text.js?v2"></script>
-    <script type="text/javascript" src="loader.js?v2"></script>
     
 </head>
 <body>
