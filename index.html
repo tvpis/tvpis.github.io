@@ -98,7 +98,7 @@
         }
             
             $(document).ready(function() {
-                $.ajax("data.json").done(function(data) {
+                $.ajax("data.json?v3").done(function(data) {
                     loadImages(data.map(function(x) {
                         return x["img"];
                     }));
