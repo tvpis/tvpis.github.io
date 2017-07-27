@@ -8,6 +8,7 @@ data = JSON.parse(File.read("data.json"))
 Dir["raw/src/*"].each do |raw|
     last += 1
     system("convert -resize 1920x1080 '%s' 'img/%d.jpg'" % [raw, last])
+    system("exiftool -all= 'img/%d.jpg'" % [last])
     system("open 'img/%d.jpg'" % [last])
     system("nano 'img/%d.jpg.txt'" % [last])
     FileUtils.mv(raw, "raw/done/")
