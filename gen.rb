@@ -5,18 +5,24 @@ require "json"
 files = Dir["img/*.jpg"].to_a.map{|n| File.basename(n) }.sort_by{|n| n.split(/ /).last.to_i }
 last = files.last.to_i
 data = JSON.parse(File.read("data.json"))
+data.each do |row|
+	row["id"] = row["id"].to_s.rjust(4, '0')
+	row["img"] = row["id"] + ".jpg"
+end
+
 Dir["raw/src/*"].each do |raw|
     last += 1
-    system("convert -resize 1920x1080 '%s' 'img/%d.jpg'" % [raw, last])
-    system("exiftool -all= 'img/%d.jpg'" % [last])
-    system("open 'img/%d.jpg'" % [last])
-    system("nano 'img/%d.jpg.txt'" % [last])
+    last_p = last.to_s.rjust(4, '0')
+    system("convert -resize 1920x1080 '%s' 'img/%s.jpg'" % [raw, last_p])
+    system("exiftool -all= 'img/%s.jpg'" % [last_p])
+    system("open 'img/%s.jpg'" % [last_p])
+    system("nano 'img/%s.md'" % [last_p])
     FileUtils.mv(raw, "raw/done/")
-    files << "#{last}.jpg"
+    files << "#{last_p}.jpg"
     data << {
-        :id => last.to_i,
-        :url => "#{last}.jpg",
-        :text => File.read("img/#{last}.jpg.txt").strip
+        :id => last_p,
+        :img => "#{last_p}.jpg",
+        :text => File.read("img/#{last_p}.md").strip.gsub(/^title: /, "")
     }
 end
 
@@ -24,25 +30,3 @@ File.open("data.json", "w") do |fp|
     fp.write JSON.pretty_generate(data)
 end
 
-exit
-data.each do |img|
-    page = File.read("template.html")
-    page.gsub!("%id", img["id"].to_s)
-    page.gsub!("%text", img["text"])
-    if img["id"] <= 1
-        page.gsub!("%prev_id", data.last["id"].to_s)
-    else
-        page.gsub!("%prev_id", (img["id"] - 1).to_s)
-    end
-    
-    if img["id"] >= data.last["id"]
-        page.gsub!("%next_id", "1")
-    else
-        page.gsub!("%next_id", (img["id"] + 1).to_s)
-    end
-
-    File.open("page/#{img["id"]}.html", "w") do |fp|
-        fp.write(page)
-    end
-
-end
