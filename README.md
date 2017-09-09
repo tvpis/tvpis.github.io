@@ -1,8 +1,6 @@
 To add image:
 
 - fork repo
-- add it - use next free number - make sure width is 1920 and/or height is 1080px - keep proper aspect ratio
-- add it to loader.js
+- add new image to "raw" folder. Has to have 1920 width and/or 1080 height.
 - send pull request
 - profit
-
