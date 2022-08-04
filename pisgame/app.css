@@ -1,0 +1,104 @@
+body,html {
+    background: #ddd;
+    overflow: hidden;
+}
+.game-screen {
+    display: none;
+
+    height: 600px;
+    width: 100%;
+    padding-top: 200px;
+}
+.game-front {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: url(background.jpg) no-repeat bottom left ;
+    background-size: 100%;
+}
+
+.game-footer {
+    background: url(bgdown.png) repeat-x bottom;
+    position: fixed;
+    bottom: 0%;
+    height: 194px;
+    left: 0%;
+    width: 100%;
+
+}
+.game-panel {
+    background: url(panel.png) no-repeat center bottom;
+    margin: 0px auto;
+    width: 883px;
+    height: 190px;
+    border: 1px solid transparent;
+
+}
+
+#gameClockDisplay {
+    background: transparent;
+    font-family: "Comic Sans MS";
+    color: #fff;
+    display: block;
+    width: 100%;
+    height: 30px !important;
+    margin: 0px auto;
+
+
+}
+
+#gameMessageDisplay {
+    display: block;
+    font-family: "Comic Sans MS";
+    overflow: hidden;
+    width: 480px;
+    height: 100px;
+    margin-left: 22px;
+    margin-top: 70px;
+    
+
+}
+#gameToolset, #gameGoldDisplay {
+    display: block;
+    font-family: "Comic Sans MS";
+    width: 100px;
+    float: left;
+    margin-left: 30px;
+}
+#gameToolset {
+    display: none;
+}
+#gameGoldDisplay {
+    width: 500px;
+    background-color: #ddd;
+    text-align: center;
+}
+.game-item {
+    border: 3px solid #000;
+    border-radius: 5px;
+    display: block;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: #ddd;
+}
+
+.item-rake {
+    background-image: url(rake.png) ;
+    margin: 0px auto;
+    width: 150px;
+    height: 100px;
+}
+.tool-box .modal-content {
+    height: 400px;
+}
+.tool-box {
+    width: 600px;
+    margin: 0px auto;
+}
+.build-detail {
+    font-family: "Comic Sans MS";
+    display: none;
+}
+i.danger {
+    color: #f00 !important;
+}

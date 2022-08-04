@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>PiS: The Game</title>
+    <link rel="stylesheet" href="bulma.min.css">
+    <link rel="stylesheet" href="css/fa6.min.css">
+    <link rel="stylesheet" href="app.css">
+    <script type="text/javascript" src="jquery.min.js"></script>
+    <script type="text/javascript" src="app.js"></script>
+    
+  </head>
+  <body>
+
+
+
+    <div class="game-front">
+        <section class="section splash-screen">
+            <div class="container has-text-centered ">
+              <h1 class="title">
+                Państwo PiS: The Game
+              </h1>
+              <p class="subtitle">
+                Celem gry jest przetrwanie (nie)rządu PiS, od 2015 roku do dzisiaj
+              </p>
+            </div>
+            <div class="container has-text-centered is-widescreen is-fullwidth ">
+                <div class="block is-block">
+                    <button id="newGame" class="button is-primary">Nowa gra</button>
+                </div>
+            </div>
+        
+          </section>
+          <section class="section game-screen">
+            
+            <button class="button game-item item-rake"></button>
+          </section>
+
+    </div>
+    <div class="modal tool-box">
+        
+        <div class="modal-content">
+            <div class="box">
+                <button class="button build-item build-church" aria-name="Kościół" aria-price="150000" aria-descr="Zwiększa szansę na reelekcję ale za to zwiększa dług"><i class="fa-solid fa-church "></i></button>
+
+            </div>
+            <div class="footer">
+                <div class="build-detail">
+                    <h2 class="build-name"></h2>
+                    <hr />
+                    Koszt: <i class="fa-solid fa-money-bill build-price"></i><br />
+                    Opis: <i class="build-descr"></i>
+                </div>
+            </div>
+        </div>
+        <button class="modal-close is-large" aria-label="close"></button>
+      </div>
+
+    <div class="game-footer">
+        <div class="game-panel is-centered">
+            <div id="gameToolset">
+                <button class="button tool-build"><i class="fa-solid fa-trowel "></i></button>
+            </div>
+            <div id="gameGoldDisplay"></div>
+            <div id="gameMessageDisplay"></div>
+            <div id="gameClockDisplay"></div>
+           
+        </div>
+        
+
+    </div>
+
+
+ 
+   
+
+  </body>
+
+</html>
