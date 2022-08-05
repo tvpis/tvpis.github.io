@@ -80,6 +80,11 @@ body,html {
     background-size: cover;
     background-repeat: no-repeat;
     background-color: #ddd;
+    display: none;
+    align-items: flex-start;
+    width: 150px;
+    height: 100px;
+    position: relative;
 }
 
 .item-rake {
@@ -87,6 +92,21 @@ body,html {
     margin: 0px auto;
     width: 150px;
     height: 100px;
+    display: block;
+
+
+}
+.item-pigs {
+    background-image: url(img/pigs.png) ;
+    left: 50%;
+    top: 300px;
+}
+.item-church {
+    background-image: url(img/church.png) ;
+    top: 150px;
+    left: 400px;
+
+
 }
 .tool-box .modal-content {
     height: 400px;
@@ -101,4 +121,12 @@ body,html {
 }
 i.danger {
     color: #f00 !important;
+}
+
+i.badge {
+    padding: 3px;
+    border-radius: 3px;
+    background: #fff;
+    color: #000;
+    font-family: "Comic Sans MS";
 }
